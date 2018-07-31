@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<style>
+		#div1 div{ width: 200px; height: 200px; border: 1px solid red; display: none;}
+		#div1 .active{ background: red;}
+	</style>
+</head>
+<script>
+	$(function(){
+		var iNow=0;
+		fn1();
+		function fn1(){
+			$('#div1').find('input').eq(iNow).attr('class','active');
+			$('#div1').find('div').eq(iNow).css('display','block');
+		}
+		
+		$('#div1').find('input').click(function(){
+			iNow=$(this).index();
+			$('#div1').find('input').attr('class','');
+			$('#div1').find('div').css('display','none');
+			fn1();
+		})
+		
+	})
+</script>
+<body>
+	<div id="div1">
+		<input type="button" value="1" />
+		<input type="button" value="2" />
+		<input type="button" value="3" />
+		<div>11111</div>
+		<div>22222</div>
+		<div>33333</div>
+	</div>	
+</body>
+</html>
